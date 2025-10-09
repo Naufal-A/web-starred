@@ -1,0 +1,30 @@
+
+<div>
+  <header class="container">
+    <section>
+      <div class="container">
+        <a href="#" class="logo">Carrera</a>
+        <nav>
+          <ul>
+            <li class="@if(request.url() === '/') active @endif">
+              <a href="/">Home</a>
+            </li>
+
+            <li class="@if(request.matches('/menu')) active @endif">
+              <a href="/menu">Menu</a>
+            </li>
+
+            <li class="@if(request.matches('/about')) active @endif">
+              <a href="/about">About</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="social">
+          <a href="https://www.instagram.com/muhammadnnaufal/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </header>
+</div>

@@ -1,0 +1,85 @@
+@layout.main({ title: 'Cariera Home' })
+  @slot('main')
+    <head>
+      <link rel="stylesheet" href="/resources/css/home-style.css" />
+    </head>
+    <body>
+      <main>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="Coffee" />
+          <div class="card-content">
+            <h1>
+              Grind The Essentials
+            </h1>
+            <p>
+              Dibuat dari biji kopi Indonesia pilihan untuk pengalaman minum kopi
+          terbaik setiap hari.
+            </p>
+          </div>
+        </div>
+        <div class="story">
+          <h1>
+            OUR STORY
+          </h1>
+          <div class="story-content">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600" />
+            <div class="story-p">
+              <p>
+                Carrera Coffee berdiri dengan cita-cita menghadirkan kopi spesial
+            terbaik untuk setiap pelanggan. Terinspirasi dari semangat tumbuh
+            kuat dan menciptakan kehidupan baru di sekitar, kami ingin
+            meningkatkan kualitas kopi dalam komunitas.
+              </p>
+              <p>
+                Dengan jaringan dan pengalaman, kami menggunakan biji kopi pilihan
+            dari petani lokal, diolah oleh barista berpengalaman untuk
+            menyajikan secangkir kebahagiaan setiap harinya.
+              </p>
+              <a href="#" class="btn">Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <section class="promo-section">
+          <h2>
+            Promo di Carrera Coffee
+          </h2>
+          <p>
+            Temukan berbagai promo menarik di sini!
+          </p>
+
+          <div class="promo-cards">
+            <div class="promo-card">
+              <h3>
+                Disc. 30%
+              </h3>
+              <p>
+                Treats Everyday
+              </p>
+              <img src="Media/diskon30%.png" alt="Promo 30%" />
+            </div>
+
+            <div class="promo-card">
+              <h3>
+                Saturday Free Upsize
+              </h3>
+              <p>
+                Berlaku setiap Sabtu
+              </p>
+              <img src="Media/pusize.png" alt="Promo Upsize" />
+            </div>
+
+            <div class="promo-card">
+              <h3>
+                Disc. 35%
+              </h3>
+              <p>
+                Paket Hemat
+              </p>
+              <img src="Media/diskon35%.png" alt="Promo 35%" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </body>
+  @endslot
+@end
