@@ -1,0 +1,66 @@
+@layout.main({ title: 'Cariera Home' })
+  @slot('main')
+    <head>
+      <link rel="stylesheet" href="/resources/css/about-style.css" />
+    </head>
+    <body>
+      <div class="container">
+        <!-- Page Title -->
+        <div class="page-title">
+          <h1>
+            Contact Us
+          </h1>
+          <p>
+            Jika Anda mempunyai pertanyaan atau kekhawatiran, Anda dapat
+          menghubungi kami dengan mengisi formulir kontak, menelepon kami,
+          datang ke kantor kami, menemukan kami di jejaring sosial lain, atau
+          Anda dapat mengirim email pribadi kepada kami di
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="info">
+            <h2>
+              Kantor
+            </h2>
+            <p>
+              <strong>Alamat:</strong>              <br />
+              Jl. Sudirman No. 123, Jakarta, Indonesia
+            </p>
+            <p>
+              <strong>Nomor:</strong>              <br />
+              +62 21 1234 5678
+            </p>
+            <p>
+              <strong>Email:</strong>              <br />
+              hello
+              @coffeeexample.com
+            </p>
+            <p>
+              <strong>Jam Kerja:</strong>              <br />
+              Mon - Fri : 09:00 - 18:00
+            </p>
+          </div>
+
+          <div class="form">
+            <h2>
+              Send Us a Message
+            </h2>
+            <form action="#" method="post">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </body>
+  @endslot
+@end
