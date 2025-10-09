@@ -1,0 +1,16 @@
+{{-- resources/views/pages/admin_dashboard.edge --}}
+@layout.main({ title: 'Dashboard Bendahara' })
+  @slot('main')
+    <h1>
+      Selamat Datang, Bendahara!
+    </h1>
+    <p>
+      Ini adalah halaman rahasia yang hanya bisa diakses oleh bendahara.
+    </p>
+
+    <form action="/logout" method="POST">
+      {{ csrfField() }}
+      <button type="submit">Logout</button>
+    </form>
+  @endslot
+@end
