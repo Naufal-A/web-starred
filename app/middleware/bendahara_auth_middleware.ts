@@ -6,13 +6,13 @@ export default class BendaharaAuthMiddleware {
   async handle({ session, response }: HttpContext, next: NextFn) {
     const user = session.get('loggedInUser')
 
-    // Jika tidak ada user di session atau perannya bukan bendahara
+    // Jika tidak ada user di session ATAU perannya bukan 'bendahara'
     if (!user || user.role !== 'bendahara') {
-      // Tendang ke halaman utama
+      // Alihkan ke halaman utama
       return response.redirect('/')
     }
 
-    // Izinkan akses
+    // Jika user adalah bendahara, izinkan lanjut
     await next()
   }
 }

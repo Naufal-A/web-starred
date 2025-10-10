@@ -1,34 +1,29 @@
 // File: start/routes.ts
-import AuthController from '#controllers/auth_controller'
 import router from '@adonisjs/core/services/router'
-import { middleware } from '#start/kernel' // <-- Import ini sekarang akan berfungsi
+import { middleware } from '#start/kernel'
+const AuthController = () => import('#controllers/auth_controller')
 
-/*
-| --------------------------------------------------------------------------
-| Hapus blok ini dari routes.ts
-| --------------------------------------------------------------------------
-|
-| middleware.register({
-|   bendahara: () => import('#middleware/bendahara_auth_middleware'),
-| })
-|
-*/
+// --- RUTE PUBLIK (LOGIN) ---
+// Sekarang rute utama "/" adalah halaman login
+router.get('/', [AuthController, 'showLogin']).as('login.show')
+router.get('/login', [AuthController, 'showLogin']) // Alias untuk /
+router.post('/login', [AuthController, 'handleLogin']).as('login.handle')
+router.post('/logout', [AuthController, 'logout']).as('logout')
 
-// Halaman utama dan lainnya
-router.on('/').render('pages/home')
-router.on('/menu').render('pages/menu')
-router.on('/about').render('pages/about')
-
-// Rute Otentikasi
-router.get('/login', [AuthController, 'showLogin'])
-router.post('/login', [AuthController, 'handleLogin'])
-router.post('/logout', [AuthController, 'logout'])
-
-// Grup Rute Khusus Bendahara
+// --- RUTE INTERNAL YANG DILINDUNGI (UNTUK USER BIASA) ---
 router
   .group(() => {
-    router.on('/dashboard').render('pages/admin_dashboard')
-    // Tambahkan rute bendahara lainnya di sini
+    // Halaman Home lama sekarang ada di '/home'
+    router.on('/home').render('pages/home').as('home')
+    router.on('/menu').render('pages/menu').as('menu')
+    router.on('/about').render('pages/about').as('about')
+  })
+  .use(middleware.authSession()) // Dilindungi oleh middleware baru kita
+
+// --- RUTE KHUSUS BENDahara (TETAP SAMA) ---
+router
+  .group(() => {
+    router.on('/dashboard').render('pages/admin_dashboard').as('bendahara.dashboard')
   })
   .prefix('/bendahara')
-  .use(middleware.bendahara()) // <-- Baris ini sekarang tidak akan error lagi
+  .use(middleware.bendahara())

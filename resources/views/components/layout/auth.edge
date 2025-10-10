@@ -1,0 +1,17 @@
+{{-- File: resources/views/components/auth.edge --}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{ title || "Carrera" }}
+    </title>
+
+  </head>
+  <body style="background: #f0f0f0; font-family: Arial, sans-serif;">
+
+    {{-- Di sini konten dari halaman login akan ditampilkan --}}
+    {{{ await $slots.main() }}}
+  </body>
+</html>

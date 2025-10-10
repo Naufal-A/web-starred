@@ -1,0 +1,32 @@
+{{-- File: resources/views/pages/login.edge --}}
+@layout.auth({ title: 'Login' })
+  @slot('main')
+    <div
+      style="max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background: white;"
+    >
+      <h2>
+        Login Carrera
+      </h2>
+      @if(flashMessages.has('error'))
+        <p style="color: red;">
+          {{ flashMessages.get('error') }}
+        </p>
+      @endif
+      <form action="/login" method="POST">
+        {{ csrfField() }}
+        <div style="margin-bottom: 15px;">
+          <label for="email">Email</label>          <br />
+          <input type="email" id="email" name="email" required style="width: 95%; padding: 8px;" />
+        </div>
+        <div style="margin-bottom: 15px;">
+          <label for="password">Password</label>          <br />
+          <input type="password" id="password" name="password" required style="width: 95%; padding: 8px;" />
+        </div>
+        <button
+          type="submit"
+          style="width: 100%; padding: 10px; background-color: #064420; color: white; border: none; border-radius: 4px;"
+        >Login</button>
+      </form>
+    </div>
+  @endslot
+@end
