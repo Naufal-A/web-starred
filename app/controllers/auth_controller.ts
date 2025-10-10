@@ -3,7 +3,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class AuthController {
   private users: Record<string, { password: string; role: string }> = {
-    'bendahara@carrera.com': { password: 'adminpassword', role: 'bendahara' },
+    'admin@carrera.com': { password: 'adminpassword', role: 'admin' },
     'user@carrera.com': { password: 'userpassword', role: 'user' },
   }
 
@@ -19,8 +19,8 @@ export default class AuthController {
       session.put('loggedInUser', { email: email, role: user.role })
 
       // Arahkan berdasarkan peran (role)
-      if (user.role === 'bendahara') {
-        return response.redirect('/bendahara/dashboard')
+      if (user.role === 'admin') {
+        return response.redirect('/admin/dashboard')
       }
 
       // --- INI PERUBAHANNYA ---

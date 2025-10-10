@@ -46,6 +46,6 @@ router.use([
 export const middleware = router.named({
   guest: () => import('#middleware/guest_middleware'),
   auth: () => import('#middleware/auth_middleware'),
-  bendahara: () => import('#middleware/bendahara_auth_middleware'),
+  admin: () => import('#middleware/admin_auth_middleware'),
   authSession: () => import('#middleware/auth_session_middleware'),
 })

@@ -23,7 +23,7 @@ router
 // --- RUTE KHUSUS BENDahara (TETAP SAMA) ---
 router
   .group(() => {
-    router.on('/dashboard').render('pages/admin_dashboard').as('bendahara.dashboard')
+    router.on('/dashboard').render('pages/admin_dashboard').as('admin.dashboard')
   })
-  .prefix('/bendahara')
-  .use(middleware.bendahara())
+  .prefix('/admin')
+  .use(middleware.admin())
