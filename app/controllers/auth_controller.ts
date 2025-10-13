@@ -8,7 +8,7 @@ export default class AuthController {
   }
 
   public showLogin({ view }: HttpContext) {
-    return view.render('pages/login')
+    return view.render('pages/shared/login')
   }
 
   public async handleLogin({ request, response, session }: HttpContext) {
@@ -22,10 +22,8 @@ export default class AuthController {
       if (user.role === 'admin') {
         return response.redirect('/admin/dashboard')
       }
-
-      // --- INI PERUBAHANNYA ---
       // Arahkan user biasa ke halaman '/home'
-      return response.redirect('/home')
+      return response.redirect('/user/home')
     }
 
     session.flash('error', 'Email atau password salah.')

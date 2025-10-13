@@ -14,16 +14,17 @@ router.post('/logout', [AuthController, 'logout']).as('logout')
 router
   .group(() => {
     // Halaman Home lama sekarang ada di '/home'
-    router.on('/home').render('pages/home').as('home')
-    router.on('/menu').render('pages/menu').as('menu')
-    router.on('/about').render('pages/about').as('about')
+    router.on('/home').render('pages/user/home').as('home')
+    router.on('/menu').render('pages/user/menu').as('menu')
+    router.on('/about').render('pages/user/about').as('about')
   })
+  .prefix('/user')
   .use(middleware.authSession()) // Dilindungi oleh middleware baru kita
 
 // --- RUTE KHUSUS BENDahara (TETAP SAMA) ---
 router
   .group(() => {
-    router.on('/dashboard').render('pages/admin_dashboard').as('admin.dashboard')
+    router.on('/dashboard').render('pages/admin/dashboard').as('admin.dashboard')
   })
   .prefix('/admin')
   .use(middleware.admin())
