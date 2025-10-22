@@ -1,0 +1,142 @@
+/* File: resources/css/login.css */
+
+.login-split-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.login-wallpaper {
+  width: 60%; /* Mengambil setengah bagian layar */
+  background-image: url('/resources/media/login/vulcan.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 9px;
+}
+
+.login-form-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-form h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* --- Grup Form (Label + Input) --- */
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+/* Efek saat input di-klik */
+.form-group input:focus {
+  outline: none;
+  border-color: #5d54a4;
+  box-shadow: 0 0 0 2px rgba(93, 84, 164, 0.2);
+}
+
+/* --- Opsi Tambahan (Remember Me & Forgot Password) --- */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.form-options .remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.form-options a {
+  color: #6da454;
+  text-decoration: none;
+}
+.form-options a:hover {
+  text-decoration: underline;
+}
+
+/* --- Tombol Login --- */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #71a454;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 30px;
+}
+
+.login-btn:hover {
+  background-color: #4a428a;
+}
+
+/* --- Pemisah "or sign up using" --- */
+.separator {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* --- Ikon Social Media --- */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-login a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.social-login a:hover {
+  background-color: #f0f0f0;
+}
+
+.social-login img {
+  width: 20px;
+  height: 20px;
+}

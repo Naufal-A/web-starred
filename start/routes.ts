@@ -17,6 +17,7 @@ router
     router.on('/home').render('pages/user/home').as('home')
     router.on('/menu').render('pages/user/menu').as('menu')
     router.on('/about').render('pages/user/about').as('about')
+    router.on('wishlist').render('pages/user/wishlist').as('wishlist')
   })
   .prefix('/user')
   .use(middleware.authSession()) // Dilindungi oleh middleware baru kita
@@ -25,6 +26,8 @@ router
 router
   .group(() => {
     router.on('/dashboard').render('pages/admin/dashboard').as('admin.dashboard')
+    router.on('/menu').render('pages/admin/menu').as('admin.menu')
+    router.on('/wishlist').render('pages/admin/wishlist').as('admin.wishlist')
   })
   .prefix('/admin')
   .use(middleware.admin())

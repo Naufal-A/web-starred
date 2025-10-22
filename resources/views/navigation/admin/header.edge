@@ -12,23 +12,19 @@
           <ul>
 
             <li>
-              <a href="/admin/wishlist" class="{{ request.matchesRoute('/admin/dashboard') ? 'active' : '' }}">Dashboard</a>
+              <a href="/admin/dashboard" class="{{ request.matchesRoute('/admin/dashboard') ? 'active' : '' }}">Dashboard</a>
             </li>
             <li>
-              <a href="/user/menu" class="{{ request.matchesRoute('/user/menu') ? 'active' : '' }}">Menu</a>
+              <a href="/admin/menu" class="{{ request.matchesRoute('/admin/menu') ? 'active' : '' }}">Menu</a>
             </li>
             <li>
-              <a href="/user/about" class="{{ request.matchesRoute('/user/about') ? 'active' : '' }}">About</a>
-            </li>
-            <li>
-              <a href="/user/wishlist" class="{{ request.matchesRoute('/user/wishlist') ? 'active' : '' }}">Wshlist</a>
+              <a href="/admin/wishlist" class="{{ request.matchesRoute('/admin/wishlist') ? 'active' : '' }}">Wishlist</a>
             </li>
 
           </ul>
         </nav>
 
         <div class="social">
-          {{-- Jika ada user login, tampilkan tombol Logout --}}
           
             <form action="/logout" method="POST" style="margin: 0;">
               {{ csrfField() }}

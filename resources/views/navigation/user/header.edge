@@ -28,23 +28,19 @@
         </nav>
 
         <div class="social">
-          {{-- Jika ada user login, tampilkan tombol Logout --}}
-          @if(loggedInUser)
-            <form action="/logout" method="POST" style="margin: 0;">
-              {{ csrfField() }}
-              <button
-                type="submit"
-                style="background: #c58940; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;"
-              >
-                Logout
-              </button>
-            </form>
+          @if(request.matchesRoute('/user/home'))
+            <a href="/login" style="background: #c58940; color: white; border: none; padding: 8px 15px; border-radius: 5px; text-decoration: none;">
+              Login
+            </a>
+
           @else
-            {{-- Jika tidak, tampilkan ikon Instagram --}}
+
             <a href="https://www.instagram.com/muhammadnnaufal/" target="_blank">
               <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
             </a>
           @endif
+        </div>
+              
         </div>
       </div>
     </section>

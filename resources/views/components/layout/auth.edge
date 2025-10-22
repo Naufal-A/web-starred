@@ -7,10 +7,9 @@
     <title>
       {{ title || "Carrera" }}
     </title>
+    <link rel="stylesheet" href="/resources/css/app.css" />
 
   </head>
-  <body style="background: #f0f0f0; font-family: Arial, sans-serif;">
-
     {{-- Di sini konten dari halaman login akan ditampilkan --}}
     {{{ await $slots.main() }}}
   </body>
