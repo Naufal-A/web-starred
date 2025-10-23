@@ -36,33 +36,22 @@ header .container {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px; /* Memberi jarak antar menu */
+  gap: 20px; 
   padding: 0;
   margin: 0;
 }
 
-/* * 1. GAYA UNTUK LINK BIASA (TIDAK AKTIF)
- * Ini adalah tampilan default untuk semua link di navigasi.
- * Kita buat warnanya netral dan tanpa garis bawah.
-*/
 nav ul li a {
-  text-decoration: none; /* Hapus garis bawah */
-  color: #333; /* Warna abu-abu gelap (atau warna non-aktif lainnya) */
+  text-decoration: none; 
+  color: #333; 
   font-weight: 500;
-  padding-bottom: 5px; /* Jarak untuk garis bawah nanti */
-  border-bottom: 2px solid transparent; /* Garis bawah transparan */
+  padding-bottom: 5px; 
+  border-bottom: 2px solid transparent; 
   transition: all 0.2s ease-in-out;
 }
 
-/* * 2. GAYA UNTUK LINK YANG SEDANG AKTIF
- * Gaya ini HANYA akan berlaku untuk link di dalam <li> yang punya class "active".
-*/
-nav ul li.active a {
-  color: #c58940; /* Warna oranye/coklat khasmu */
-  border-bottom: 2px solid #c58940; /* Tampilkan garis bawah dengan warna yang sama */
-}
 nav ul li a:hover {
-  color: #b5651d;
+  color: #1b832c;
 }
 .social a img {
   width: 24px;
@@ -74,7 +63,7 @@ header.container {
   padding: 0 20px;
 }
 nav ul li a.active {
-  color: #b5651d;
+  color: #2a8a27;
   font-weight: bold;
-  border-bottom: 2px solid #b5651d;
+  border-bottom: 2px solid #1b970f;
 }

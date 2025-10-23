@@ -1,43 +1,29 @@
+{{-- File: resources/views/navigation/footer.edge --}}
 <head>
   <link rel="stylesheet" href="/resources/css/footer.css" />
 </head>
-  {{-- File: resources/views/layouts/footer.edge --}}
-
-<footer class="main-footer">
+<footer>
   <div class="container">
-
-    {{-- Kolom 1: Brand & Social Media --}}
-    <div class="footer-column brand">
-      <h3>Kelompok 1</h3> {{-- Atau nama brand Anda --}}
-      <p>Deskripsi singkat tentang kelompok atau brand Anda.</p>
-      <div class="social-icons">
-        <a href="#" target="_blank"><img src="https://simpleicons.org/icons/whatsapp.svg" alt="WhatsApp"></a>
-        <a href="#" target="_blank"><img src="https://simpleicons.org/icons/facebook.svg" alt="Facebook"></a>
-        <a href="#" target="_blank"><img src="https://simpleicons.org/icons/instagram.svg" alt="Instagram"></a>
-      </div>
+    <div class="footer-left">
+      <h2>Carrera</h2>
+      <p>Tempat terbaik untuk menikmati kopi dengan suasana santai.</p>
+      {{-- Tambahkan Copyright --}}
+      <p style="margin-top: 10px; font-size: 12px; color: #999;">
+        &copy; {{ new Date().getFullYear() }} Carrera Coffee. All rights reserved.
+      </p>
     </div>
 
-    {{-- Kolom 2: Products --}}
-    <div class="footer-column">
-      <h3>Products</h3>
-      <ul>
-        <li><a href="#">Link Produk 1</a></li>
-        <li><a href="#">Link Produk 2</a></li>
-        <li><a href="#">Link Produk 3</a></li>
-      </ul>
+    <div class="footer-right">
+      {{-- Ikon sosial media tetap sama --}}
+      <a href="https://instagram.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+      <a href="https://twitter.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+      </a>
+      <a href="https://facebook.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </a>
     </div>
-
-
-    {{-- Tombol Back to Top --}}
-    <a href="#top" class="back-to-top">
-      BACK TO TOP
-      <span>↑</span>
-    </a>
-
-  </div>
-
-  {{-- Bagian Copyright --}}
-  <div class="footer-bottom">
-    <p>&copy; {{ new Date().getFullYear() }} Carrera. All Rights Reserved.</p>
   </div>
 </footer>

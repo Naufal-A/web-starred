@@ -1,113 +1,64 @@
-/* ===== FOOTER STYLES ===== */
-
-footer.main-footer {
-  background-color: #ffffff; /* Warna putih */
-  color: #333;
-  padding-top: 25px;
-  margin-top: auto; /* Pastikan footer menempel di bawah jika konten pendek */
-  border-top: 1px solid #eee;
+/* File: resources/css/footer.css */
+footer {
+  background-color: #302f2f; /* Warna latar belakang gelap */
+  color: #e0e0e0; /* Warna teks agak terang */
+  padding: 30px 0; /* Tambah padding atas/bawah */
+  margin-top: 50px; /* Sedikit lebih banyak jarak dari konten utama */
+  font-size: 14px;
 }
 
 footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Kolom responsif */
-  gap: 30px;
-  position: relative; /* Untuk tombol Back to Top */
-}
-
-.footer-column h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-.footer-column.brand h3 {
-   font-family: serif; /* Ganti font jika perlu */
-   font-size: 24px;
-   font-weight: bold;
-}
-
-
-.footer-column p,
-.footer-column ul {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.7;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 8px;
-}
-
-.footer-column ul li a {
-  color: #666;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-column ul li a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* Ikon Sosial Media */
-.social-icons {
+  max-width: 1200px; /* Batasi lebar max container */
+  margin: 0 auto; /* Tengahkankan container */
+  padding: 0 20px; /* Padding kiri/kanan */
   display: flex;
-  gap: 15px;
-  margin-top: 15px;
+  justify-content: space-between; /* Kiri dan kanan terpisah */
+  align-items: center; /* Tengah secara vertikal */
+  flex-wrap: wrap; /* Biarkan wrap di layar kecil */
+  gap: 20px; /* Jarak jika wrapping terjadi */
 }
 
-.social-icons a {
-  display: inline-block;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-.social-icons a:hover {
-  opacity: 1;
+.footer-left h2 {
+  margin: 0 0 8px; /* Sedikit jarak bawah dari judul */
+  font-size: 20px; /* Ukuran judul */
+  color: #ffffff; /* Warna judul putih */
 }
 
-.social-icons img {
-  width: 24px;
+.footer-left p {
+  margin: 0;
+  color: #bdbdbd; /* Warna teks deskripsi lebih lembut */
+}
+
+.footer-right {
+  display: flex; /* Gunakan flexbox untuk ikon sosial media */
+  gap: 15px; /* Jarak antar ikon */
+  align-items: center; /* Pastikan ikon sejajar */
+}
+
+.footer-right a {
+  display: inline-block; /* Agar transisi bekerja */
+}
+
+.footer-right img {
+  width: 24px; /* Ukuran ikon sedikit lebih kecil */
   height: 24px;
+  opacity: 0.8; /* Buat sedikit transparan */
+  transition: opacity 0.2s ease; /* Transisi halus saat hover */
 }
 
-/* Tombol Back to Top */
-.back-to-top {
-  position: absolute;
-  top: 0; /* Sesuaikan posisi vertikal jika perlu */
-  right: 20px; /* Posisi di kanan container */
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.back-to-top:hover {
-  background-color: #333;
-}
-.back-to-top img { /* Jika pakai icon panah */
-  width: 12px;
-  height: 12px;
-  filter: invert(1);
+.footer-right img:hover {
+  opacity: 1; /* Kembali normal saat hover */
+  filter: none; /* Hapus filter brightness sebelumnya */
 }
 
-/* Garis Bawah dan Copyright */
-.footer-bottom {
-  border-top: 1px solid #eee;
-  margin-top: 15px;
-  text-align: center;
-  font-size: 12px;
-  color: #aaa;
+/* Responsiveness (opsional) */
+@media (max-width: 768px) {
+  footer .container {
+    flex-direction: column; /* Susun vertikal di layar kecil */
+    text-align: center; /* Tengahkankan teks */
+  }
+
+  .footer-left {
+    margin-bottom: 15px; /* Jarak bawah jika vertikal */
+  }
 }
