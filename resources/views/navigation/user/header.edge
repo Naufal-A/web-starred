@@ -1,0 +1,48 @@
+{{-- File: resources/views/layouts/header.edge --}}
+
+{{-- Ambil data user yang sedang login dari session --}}
+
+<div>
+  <header class="container">
+    <section>
+      <div class="container">
+        <a href="#" class="logo">Carrera</a>
+
+        <nav>
+          <ul>
+
+            <li>
+              <a href="/user/home" class="{{ request.matchesRoute('/user/home') ? 'active' : '' }}">Home</a>
+            </li>
+            <li>
+              <a href="/user/menu" class="{{ request.matchesRoute('/user/menu') ? 'active' : '' }}">Menu</a>
+            </li>
+            <li>
+              <a href="/user/about" class="{{ request.matchesRoute('/user/about') ? 'active' : '' }}">About</a>
+            </li>
+            <li>
+              <a href="/user/wishlist" class="{{ request.matchesRoute('/user/wishlist') ? 'active' : '' }}">Wshlist</a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <div class="social">
+          @if(request.matchesRoute('/user/home'))
+            <a href="/login" style="background: #c58940; color: white; border: none; padding: 8px 15px; border-radius: 5px; text-decoration: none;">
+              Login
+            </a>
+
+          @else
+
+            <a href="https://www.instagram.com/muhammadnnaufal/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+            </a>
+          @endif
+        </div>
+              
+        </div>
+      </div>
+    </section>
+  </header>
+</div>

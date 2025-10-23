@@ -1,0 +1,41 @@
+{{-- File: resources/views/layouts/header.edge --}}
+
+{{-- Ambil data user yang sedang login dari session --}}
+
+<div>
+  <header class="container">
+    <section>
+      <div class="container">
+        <a href="#" class="logo">Carrera</a>
+
+        <nav>
+          <ul>
+
+            <li>
+              <a href="/admin/dashboard" class="{{ request.matchesRoute('/admin/dashboard') ? 'active' : '' }}">Dashboard</a>
+            </li>
+            <li>
+              <a href="/admin/menu" class="{{ request.matchesRoute('/admin/menu') ? 'active' : '' }}">Menu</a>
+            </li>
+            <li>
+              <a href="/admin/wishlist" class="{{ request.matchesRoute('/admin/wishlist') ? 'active' : '' }}">Wishlist</a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <div class="social">
+          
+            <form action="/logout" method="POST" style="margin: 0;">
+              {{ csrfField() }}
+              <button
+                type="submit"
+                style="background: #c58940; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;"
+              > Logout </button>
+            </form>
+          
+        </div>
+      </div>
+    </section>
+  </header>
+</div>

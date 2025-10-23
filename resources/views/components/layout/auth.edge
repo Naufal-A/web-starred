@@ -1,20 +1,16 @@
+{{-- File: resources/views/components/auth.edge --}}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>
-      {{ title || "Cariera Coffey And Eatery" }}
+      {{ title || "Carrera" }}
     </title>
     <link rel="stylesheet" href="/resources/css/app.css" />
 
   </head>
-  <body>
-    @include('navigation/user/header')
-    <main>
-      {{{ await $slots.main() }}}
-    </main>
-    @include('navigation/footer')
+    {{-- Di sini konten dari halaman login akan ditampilkan --}}
+    {{{ await $slots.main() }}}
   </body>
 </html>
