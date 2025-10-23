@@ -1,4 +1,3 @@
-// app/middleware/bendahara_auth_middleware.ts
 import type { HttpContext } from '@adonisjs/core/http'
 import type { NextFn } from '@adonisjs/core/types/http'
 

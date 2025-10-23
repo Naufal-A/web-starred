@@ -1,38 +1,26 @@
-@layout.admin({ title: 'Wishlist' })
+@layout.admin({ title: 'Semua Wishlist' })
   @slot('main')
     <head>
-       <style>
-        .wishlist-container { max-width: 900px; margin: 30px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .wishlist-item { display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 15px 0; }
-        .wishlist-item:last-child { border-bottom: none; }
-        .wishlist-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; margin-right: 15px; }
-        .wishlist-item-info { flex-grow: 1; }
-        .wishlist-item-info h3 { margin: 0 0 5px; font-size: 1.1em; }
-        .wishlist-item-info .price { color: #d35400; font-weight: bold; }
-        .empty-wishlist { text-align: center; color: #777; margin-top: 30px; }
-         /* (Optional) Bisa tambahkan style flash message jika diperlukan */
-      </style>
+       <link rel="stylesheet" href="/resources/css/wishlist-style.css" />
     </head>
     <body>
        <div class="wishlist-container">
-        <h2>Wishlist (Sesi Ini)</h2> {{-- Judul bisa disesuaikan jika admin melihat semua --}}
+        <h2>Semua Wishlist Pengguna</h2> 
 
         @if(wishlistItems && wishlistItems.length > 0)
           @each(item in wishlistItems)
             <div class="wishlist-item">
-              <img src="{{ item.menuItem.imageUrl || '/resources/media/menu/default.jpg' }}" alt="{{ item.menuItem.name }}">
+               
+               <img src="{{ item.menuItem?.imageUrl || '/resources/media/menu/default.jpg' }}" alt="{{ item.menuItem?.name }}">
               <div class="wishlist-item-info">
-                <h3>{{ item.menuItem.name }}</h3>
-                <div class="price">Rp {{ item.menuItem.price.toLocaleString('id-ID') }}</div>
+                <h3>{{ item.menuItem?.name }}</h3>
+                <div class="price">Rp {{ item.menuItem?.price.toLocaleString('id-ID') }}</div>
                  <small>Ditambahkan pada: {{ item.createdAt.toLocaleString() }}</small>
-                 {{-- Bisa tambahkan info session ID jika admin melihat semua --}}
-                 {{-- <small>Session: {{ item.sessionId }}</small> --}}
               </div>
-              {{-- Admin tidak punya tombol hapus di sini (untuk sesi sendiri) --}}
             </div>
-          @endeach
+           @endeach
         @else
-          <p class="empty-wishlist">Wishlist masih kosong.</p>
+          <p class="empty-wishlist">Belum ada item di wishlist manapun.</p>
         @endif
       </div>
     </body>

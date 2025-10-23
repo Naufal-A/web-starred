@@ -1,17 +1,64 @@
-{{-- File: resources/views/pages/admin_dashboard.edge --}}
-@layout.admin({ title: 'Dashboard admin' })
+{{-- File: resources/views/pages/admin/dashboard.edge --}}
+@layout.admin({ title: 'Admin Dashboard' })
   @slot('main')
-    <div style="padding: 20px;">
-      <h1>
-        Selamat Datang, Bendahara!
-      </h1>
-      <p>
-        Ini adalah halaman rahasia yang hanya bisa diakses oleh bendahara.
-      </p>
-      <form action="/logout" method="POST">
-        {{ csrfField() }}
-        <button type="submit">Logout</button>
-      </form>
-    </div>
+    <head>
+      {{-- Tambahkan sedikit style inline atau di file CSS terpisah --}}
+      <style>
+        .dashboard-container {
+          max-width: 900px;
+          margin: 30px auto;
+          padding: 30px;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .dashboard-container h1 {
+          color: #064420; /* Warna hijau gelap */
+          margin-bottom: 15px;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 10px;
+        }
+        .dashboard-container p {
+          color: #555;
+          line-height: 1.6;
+          margin-bottom: 25px;
+        }
+        .dashboard-links a {
+          display: inline-block;
+          margin-right: 15px;
+          padding: 10px 15px;
+          background-color: #2e7d32; /* Warna hijau tombol */
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: background-color 0.2s;
+        }
+        .dashboard-links a:hover {
+          background-color: #1b5e20; /* Warna hijau lebih gelap saat hover */
+        }
+      </style>
+    </head>
+    <body>
+      <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <p>
+          Selamat datang di panel admin Carrera Coffee & Eatery. Dari sini Anda dapat mengelola menu dan melihat item yang diinginkan oleh pengguna.
+        </p>
+
+        <div class="dashboard-links">
+          <a href="{{ route('admin.menu') }}">Kelola Menu</a>
+          <a href="{{ route('admin.wishlist') }}">Lihat Semua Wishlist</a>
+          {{-- Tambahkan link lain jika perlu --}}
+        </div>
+
+        {{-- Tombol logout sudah ada di header, jadi tidak perlu di sini --}}
+        {{--
+        <form action="/logout" method="POST" style="margin-top: 30px;">
+          {{ csrfField() }}
+          <button type="submit" style="background-color: #dc3545; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">Logout</button>
+        </form>
+         --}}
+      </div>
+    </body>
   @endslot
 @end

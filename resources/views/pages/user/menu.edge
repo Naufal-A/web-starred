@@ -1,14 +1,14 @@
+{{-- File: resources/views/pages/user/menu.edge --}}
 @layout.main({ title: 'Menu Carrera' })
   @slot('main')
     <head>
-      <link rel="stylesheet" href="/resources/css/menu-style.css" />
+      <link rel=" stylesheet" href="/resources/css/menu-style.css" />
     </head>
     <body>
       <div class="container2">
         <aside class="sidebar">
           <h2>Categories</h2>
           <ul>
-             {{-- Loop kategori dari data --}}
              @each(category in Object.keys(groupedItems))
               <li><a href="#{{ category }}">{{ category }}</a></li>
              @else
@@ -18,7 +18,15 @@
         </aside>
 
         <main class="content">
-          {{-- Tampilkan Item Menu dari Database --}}
+          {{-- ==== TAMBAHKAN BLOK FLASH MESSAGE DI SINI ==== --}}
+          @if(flashMessages.has('success'))
+            <div class="flash-message flash-success">{{ flashMessages.get('success') }}</div>
+          @elseif(flashMessages.has('error'))
+            <div class="flash-message flash-error">{{ flashMessages.get('error') }}</div>
+          @elseif(flashMessages.has('info'))
+            <div class="flash-message flash-info">{{ flashMessages.get('info') }}</div>
+          @endif
+          {{-- ==== AKHIR BLOK FLASH MESSAGE ==== --}}
            @each(category in Object.keys(groupedItems))
             <section id="{{ category }}" class="section">
               <h2>{{ category }}</h2>
@@ -32,7 +40,13 @@
                        @if(item.description)
                         <p class="desc">{{ item.description }}</p>
                       @endif
-                       {{-- Tombol "Tambah ke Wishlist" bisa ditambahkan di sini --}}
+
+                      {{-- ==== FORM TAMBAH KE WISHLIST ==== --}}
+                      <form action="{{ route('wishlist.store', { menuItemId: item.id }) }}" method="POST">
+                        {{ csrfField() }}
+                        <button type="submit" class="add-to-wishlist-btn">❤️ Wishlist</button>
+                      </form>
+                      {{-- ==== AKHIR FORM ==== --}}
                     </div>
                   </div>
                 @endeach
