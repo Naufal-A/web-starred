@@ -13,10 +13,10 @@ main {
 }
 /* Header */
 header section {
-  background-color: #f8f5f0;
+  background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  padding: 20px;
+  padding: 20px;  
   margin: 40px 0;
 }
 header .container {
