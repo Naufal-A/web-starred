@@ -1,210 +1,165 @@
-@layout.admin({ title: 'Cariera Home' })
+@layout.admin({ title: 'Admin Menu Management' })
   @slot('main')
     <head>
       <link rel="stylesheet" href="/resources/css/menu-style.css" />
+      {{-- Style tambahan untuk form --}}
+      <style>
+        .add-item-form {
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .add-item-form h3 {
+          margin-top: 0;
+          color: #064420;
+        }
+        .add-item-form .form-group {
+          margin-bottom: 15px;
+        }
+        .add-item-form label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+          color: #333;
+        }
+        .add-item-form input[type="text"],
+        .add-item-form input[type="number"],
+        .add-item-form textarea,
+        .add-item-form select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        .add-item-form button {
+          background-color: #2e7d32;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.2s;
+        }
+        .add-item-form button:hover {
+          background-color: #1b5e20;
+        }
+        .flash-message {
+          padding: 10px;
+          margin-bottom: 15px;
+          border-radius: 4px;
+        }
+        .flash-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flash-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .validation-error { color: #721c24; font-size: 0.9em; margin-top: 5px; }
+      </style>
     </head>
     <body>
       <div class="container2">
-        <!-- Sidebar -->
         <aside class="sidebar">
-          <h2>
-            Categories
-          </h2>
+          <h2>Categories</h2>
           <ul>
-            <li>
-              <a href="#Coffe">Coffe</a>
-            </li>
-            <li>
-              <a href="#snack">Snack</a>
-            </li>
-            <li>
-              <a href="#Non-Coffe">Non Coffee </a>
-            </li>
+             {{-- Loop kategori dari data --}}
+             @each(category in Object.keys(groupedItems))
+              <li><a href="#{{ category }}">{{ category }}</a></li>
+             @else
+              <li><a href="#Coffe">Coffe</a></li>
+              <li><a href="#Snack">Snack</a></li>
+              <li><a href="#Non-Coffe">Non Coffee</a></li>
+             @endeach
           </ul>
         </aside>
 
-        <!-- Content -->
         <main class="content">
-          <!-- Beverage Section -->
-          <section id="Coffe" class="section">
-            <h2>
-              Coffe
-            </h2>
-            <div class="menu-grid">
-              <div class="menu-item">
-                <img src="/resources/media/menu/Espreso.jpg" alt="Drink 2" />
-                <div class="menu-info">
-                  <h3>
-                    Espreso
-                  </h3>
-                  <div class="price">
-                    Rp 32.000
-                  </div>
-                  <p class="desc">
-                    Kopi hitm yang strong .
-                  </p>
-                </div>
-              </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/Latte.jpg" alt="Drink 1" />
-                <div class="menu-info">
-                  <h3>
-                    Iced Latte
-                  </h3>
-                  <div class="price">
-                    Rp 28.000
-                  </div>
-                  <p class="desc">
-                    Espreso dengan susu segar disajikan dingin.
-                  </p>
-                </div>
-              </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/Americano.jpg" alt="Drink 2" />
-                <div class="menu-info">
-                  <h3>
-                    Americano
-                  </h3>
-                  <div class="price">
-                    Rp 32.000
-                  </div>
-                  <p class="desc">
-                    espreso dengan campuran air putih .
-                  </p>
-                </div>
-              </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/Cappucino.jpg" alt="Drink 2" />
-                <div class="menu-info">
-                  <h3>
-                    CAppucino
-                  </h3>
-                  <div class="price">
-                    Rp 32.000
-                  </div>
-                  <p class="desc">
-                    kopi dengan campuran susu
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
 
-          <!-- Snack Section -->
-          <section id="snack" class="section">
-            <h2>
-              Snack
-            </h2>
-            <div class="menu-grid">
-              <div class="menu-item">
-                <img src="/resources/media/menu/butter croisant.jpg" alt="Snack 1" />
-                <div class="menu-info">
-                  <h3>
-                    Klapertart Croissant
-                  </h3>
-                  <div class="price">
-                    Rp 33.000
-                  </div>
-                  <p class="desc">
-                    Croissant dengan custard kelapa.
-                  </p>
-                </div>
-              </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/beef mentai sandwitch.jpg" alt="Snack 2" />
-                <div class="menu-info">
-                  <h3>
-                    Beef Mentai Sandwich
-                  </h3>
-                  <div class="price">
-                    Rp 39.000
-                  </div>
-                  <p class="desc">
-                    Sandwich daging dengan saus mentai creamy.
-                  </p>
-                </div>
-              </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/mix platter.jpg" alt="Snack 2" />
-                <div class="menu-info">
-                  <h3>
-                    Mix PLatter
-                  </h3>
-                  <div class="price">
-                    Rp 39.000
-                  </div>
-                  <p class="desc">
-                    menu campuran kentang danging dan sebagainya
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+          {{-- Form Tambah Item --}}
+          <div class="add-item-form">
+            <h3>Tambah Item Menu Baru</h3>
 
-          <!-- Non-Coffe Beans Section -->
-          <section id="Non-Coffe" class="section">
-            <h2>
-              Non Coffe Drinks
-            </h2>
-            <div class="menu-grid">
-              <div class="menu-item">
-                <img src="/resources/media/menu/Macha latte.jpg" alt="Non-Coffe 1" />
-                <div class="menu-info">
-                  <h3>
-                    Macha latte
-                  </h3>
-                  <div class="price">
-                    Rp 95.000
-                  </div>
-                  <p class="desc">
-                    campuran teh hijau dan susu cream
-                  </p>
-                </div>
+            {{-- Tampilkan Flash Messages --}}
+            @if(flashMessages.has('success'))
+              <div class="flash-message flash-success">{{ flashMessages.get('success') }}</div>
+            @endif
+            @if(flashMessages.has('error'))
+              <div class="flash-message flash-error">{{ flashMessages.get('error') }}</div>
+            @endif
+
+            <form action="{{ route('admin.menu.store') }}" method="POST">
+              {{ csrfField() }}
+
+              <div class="form-group">
+                <label for="name">Nama Item</label>
+                <input type="text" id="name" name="name" value="{{ flashMessages.get('name', '') }}" required>
+                @if(flashMessages.has('errors.name'))
+                  <div class="validation-error">{{ flashMessages.get('errors.name') }}</div>
+                @endif
               </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/Chocolate ice blend.jpg" alt="Non-Coffe 2" />
-                <div class="menu-info">
-                  <h3>
-                    Choco Ice Blend
-                  </h3>
-                  <div class="price">
-                    Rp 110.000
-                  </div>
-                  <p class="desc">
-                    susu chocolate dengan campuran es dan whipcreame
-                  </p>
-                </div>
+
+              <div class="form-group">
+                <label for="price">Harga (Rp)</label>
+                <input type="number" id="price" name="price" step="100" value="{{ flashMessages.get('price', '') }}" required>
+                 @if(flashMessages.has('errors.price'))
+                  <div class="validation-error">{{ flashMessages.get('errors.price') }}</div>
+                @endif
               </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/lemon ice tea.jpg" alt="Non-Coffe 2" />
-                <div class="menu-info">
-                  <h3>
-                    lemon ice tea
-                  </h3>
-                  <div class="price">
-                    Rp 110.000
-                  </div>
-                  <p class="desc">
-                    es teh dengan campuran lemon yang segar
-                  </p>
-                </div>
+
+              <div class="form-group">
+                <label for="category">Kategori</label>
+                <select id="category" name="category" required>
+                  <option value="Coffe" {{ flashMessages.get('category') === 'Coffe' ? 'selected' : '' }}>Coffe</option>
+                  <option value="Snack" {{ flashMessages.get('category') === 'Snack' ? 'selected' : '' }}>Snack</option>
+                  <option value="Non-Coffe" {{ flashMessages.get('category') === 'Non-Coffe' ? 'selected' : '' }}>Non-Coffe</option>
+                  {{-- Tambah kategori lain jika perlu --}}
+                </select>
+                 @if(flashMessages.has('errors.category'))
+                  <div class="validation-error">{{ flashMessages.get('errors.category') }}</div>
+                @endif
               </div>
-              <div class="menu-item">
-                <img src="/resources/media/menu/oatmeal smoothies.jpg " alt="Non-Coffe 2" />
-                <div class="menu-info">
-                  <h3>
-                    Oatmeal smoothies
-                  </h3>
-                  <div class="price">
-                    Rp 110.000
-                  </div>
-                  <p class="desc">
-                    campuran Oatmeal dan berry dijadikan smoothies
-                  </p>
-                </div>
+
+              <div class="form-group">
+                <label for="description">Deskripsi (Opsional)</label>
+                <textarea id="description" name="description">{{ flashMessages.get('description', '') }}</textarea>
               </div>
-            </div>
-          </section>
+
+              <div class="form-group">
+                <label for="imageUrl">URL Gambar (Opsional)</label>
+                <input type="text" id="imageUrl" name="imageUrl" value="{{ flashMessages.get('imageUrl', '') }}" placeholder="https://example.com/image.jpg">
+                 @if(flashMessages.has('errors.imageUrl'))
+                  <div class="validation-error">{{ flashMessages.get('errors.imageUrl') }}</div>
+                @endif
+              </div>
+
+              <button type="submit">Tambah Item</button>
+            </form>
+          </div>
+
+          {{-- Tampilkan Item Menu dari Database --}}
+          @each(category in Object.keys(groupedItems))
+            <section id="{{ category }}" class="section">
+              <h2>{{ category }}</h2>
+              <div class="menu-grid">
+                @each(item in groupedItems[category])
+                  <div class="menu-item">
+                    {{-- Gunakan gambar default jika imageUrl tidak ada --}}
+                    <img src="{{ item.imageUrl || '/resources/media/menu/default.jpg' }}" alt="{{ item.name }}" />
+                    <div class="menu-info">
+                      <h3>{{ item.name }}</h3>
+                      <div class="price">Rp {{ item.price.toLocaleString('id-ID') }}</div>
+                      @if(item.description)
+                        <p class="desc">{{ item.description }}</p>
+                      @endif
+                      {{-- Tambahkan tombol Edit/Hapus di sini jika perlu --}}
+                    </div>
+                  </div>
+                @endeach
+              </div>
+            </section>
+          @else
+            <p>Belum ada item menu.</p>
+          @endeach
+
         </main>
       </div>
     </body>

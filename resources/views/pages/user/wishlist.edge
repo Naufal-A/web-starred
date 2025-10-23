@@ -1,0 +1,59 @@
+@layout.main({ title: 'Wishlist Saya' })
+  @slot('main')
+    <head>
+      {{-- Tambahkan CSS jika perlu --}}
+      <style>
+        .wishlist-container { max-width: 900px; margin: 30px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .wishlist-item { display: flex; align-items: center; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .wishlist-item:last-child { border-bottom: none; }
+        .wishlist-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; margin-right: 15px; }
+        .wishlist-item-info { flex-grow: 1; }
+        .wishlist-item-info h3 { margin: 0 0 5px; font-size: 1.1em; }
+        .wishlist-item-info .price { color: #d35400; font-weight: bold; }
+        .remove-wishlist-form { margin-left: 20px; }
+        .remove-wishlist-btn { background-color: #dc3545; color: white; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9em; }
+        .remove-wishlist-btn:hover { background-color: #c82333; }
+        .empty-wishlist { text-align: center; color: #777; margin-top: 30px; }
+         .flash-message { /* Style untuk flash message di halaman wishlist */
+           padding: 10px;
+           margin-bottom: 15px;
+           border-radius: 4px;
+         }
+         .flash-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+         .flash-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+      </style>
+    </head>
+    <body>
+      <div class="wishlist-container">
+        <h2>Wishlist Saya</h2>
+
+         {{-- Tampilkan Flash Messages --}}
+        @if(flashMessages.has('success'))
+          <div class="flash-message flash-success">{{ flashMessages.get('success') }}</div>
+        @elseif(flashMessages.has('error'))
+          <div class="flash-message flash-error">{{ flashMessages.get('error') }}</div>
+        @endif
+
+        @if(wishlistItems && wishlistItems.length > 0)
+          @each(item in wishlistItems)
+            <div class="wishlist-item">
+              <img src="{{ item.menuItem.imageUrl || '/resources/media/menu/default.jpg' }}" alt="{{ item.menuItem.name }}">
+              <div class="wishlist-item-info">
+                <h3>{{ item.menuItem.name }}</h3>
+                <div class="price">Rp {{ item.menuItem.price.toLocaleString('id-ID') }}</div>
+                 <small>Ditambahkan pada: {{ item.createdAt.toLocaleString() }}</small>
+              </div>
+              {{-- Form Hapus dari Wishlist --}}
+              <form action="{{ route('wishlist.destroy', { id: item.id }) }}?_method=DELETE" method="POST" class="remove-wishlist-form" onsubmit="return confirm('Hapus item ini dari wishlist?')">
+                {{ csrfField() }}
+                <button type="submit" class="remove-wishlist-btn">Hapus</button>
+              </form>
+            </div>
+          @endeach
+        @else
+          <p class="empty-wishlist">Wishlist Anda masih kosong.</p>
+        @endif
+      </div>
+    </body>
+  @endslot
+@end
